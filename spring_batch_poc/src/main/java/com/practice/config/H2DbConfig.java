@@ -11,9 +11,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Configuration
 public class H2DbConfig {
-	
+
 	private final H2DbConfigProps configProps;
-	
+
 	public H2DbConfig(H2DbConfigProps configProps) {
 		super();
 		this.configProps = configProps;
@@ -21,8 +21,7 @@ public class H2DbConfig {
 
 	@Bean(name = "h2DataBase")
 	public DataSource getH2DataSource() {
-		return DataSourceBuilder.create().url(configProps.getUrl())
-				.username(configProps.getUserName()).password(configProps.getPassword())
-				.driverClassName(configProps.getDriverClassName()).build();
+		return DataSourceBuilder.create().url(configProps.getUrl()).username(configProps.getUserName())
+				.password(configProps.getPassword()).driverClassName(configProps.getDriverClassName()).build();
 	}
 }
